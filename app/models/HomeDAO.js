@@ -17,11 +17,11 @@ HomeDAO.prototype.consultar = function(usuario, callback){
 	this._connection(dados);
 }
 
-HomeDAO.prototype.abrir = function(chamado, callback, req){
+HomeDAO.prototype.abrir = function(usuario, callback){
 
 	var dados = {
 		operacao : 'abre_chamado',
-		chamados : {id_chamado: new objectId(), chamado: req.body.chamado},
+		usuario: usuario,
 		collection : 'usuarios',
 		callback : function(err,result){
 			callback(result);
