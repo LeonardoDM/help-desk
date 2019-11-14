@@ -12,10 +12,10 @@
     "body-parser": "^1.19.0",
     "consign": "^0.1.6",
     "crypto": "^1.0.1",
-    "ejs": "^2.7.1",
+    "ejs": "^2.7.2",
     "express": "^4.17.1",
-    "express-session": "^1.16.2",
+    "express-session": "^1.17.0",
     "express-validator": "^6.2.0",
-    "mongodb": "^3.3.2"
+    "mongodb": "^3.3.4"
   }
 }
