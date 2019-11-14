@@ -21,10 +21,10 @@ module.exports.consulta = function(application, req, res){
 		res.send('Usuário precisa fazer o login');
 		return;
 	}
-	var connection = application.config.dbConnection;
-	var HomeDAO = new application.app.models.HomeDAO(connection);
+	const connection = application.config.dbConnection;
+	const HomeDAO = new application.app.models.HomeDAO(connection);
 
-	var usuario = req.session.usuario;
+	const usuario = req.session.usuario;
 
 	HomeDAO.consultar(usuario, function(err, result){
 		res.render('consultar_chamado', {chamados: result});
@@ -38,7 +38,7 @@ module.exports.registra = function(application, req, res){
 		return;
 	}
 
-	var dadosForm = req.body;
+	const dadosForm = req.body;
 
 	const errors = validationResult(req);
 
@@ -47,8 +47,8 @@ module.exports.registra = function(application, req, res){
 		return;
 	}
 
-	var connection = application.config.dbConnection;
-	var HomeDAO = new application.app.models.HomeDAO(connection);
+	const connection = application.config.dbConnection;
+	const HomeDAO = new application.app.models.HomeDAO(connection);
 
 	HomeDAO.abrir(dadosForm, function(){
 		res.render('abrir_chamado', {validacao: {}});

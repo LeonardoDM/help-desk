@@ -5,7 +5,7 @@ module.exports.login = function(application, req, res){
 }
 
 module.exports.autenticar = function(application, req, res){
-	var dadosForm = req.body;
+	const dadosForm = req.body;
 
 	const errors = validationResult(req);
 
@@ -14,8 +14,8 @@ module.exports.autenticar = function(application, req, res){
 		return;
 	}
 
-	var connection = application.config.dbConnection;
-	var UsuariosDAO = new application.app.models.UsuariosDAO(connection);
+	const connection = application.config.dbConnection;
+	const UsuariosDAO = new application.app.models.UsuariosDAO(connection);
 
 	UsuariosDAO.autenticar(dadosForm, req, res);
 

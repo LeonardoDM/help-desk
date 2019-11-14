@@ -1,4 +1,4 @@
-var objectId = require('mongodb').ObjectId;
+const objectId = require('mongodb').ObjectId;
 
 function HomeDAO(connection){
 	this._connection = connection;
@@ -6,7 +6,7 @@ function HomeDAO(connection){
 
 HomeDAO.prototype.consultar = function(usuario, callback){
 
-	var dados = {
+	const dados = {
 		operacao : 'consulta_chamado',
 		usuario : usuario,
 		collection : 'usuarios',
@@ -19,7 +19,7 @@ HomeDAO.prototype.consultar = function(usuario, callback){
 
 HomeDAO.prototype.abrir = function(usuario, callback){
 
-	var dados = {
+	const dados = {
 		operacao : 'abre_chamado',
 		usuario: usuario,
 		collection : 'usuarios',

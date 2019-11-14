@@ -6,7 +6,7 @@ function UsuariosDAO(connection){
 }
 
 UsuariosDAO.prototype.inserirUsuario = function(usuario){
-	var dados = {
+	const dados = {
 		operacao : 'inserir',
 		usuario : usuario,
 		collection : 'usuarios',
@@ -17,14 +17,14 @@ UsuariosDAO.prototype.inserirUsuario = function(usuario){
 }
 
 UsuariosDAO.prototype.autenticar = function(usuario, req, res){
-	var dados = {
+	const dados = {
 		operacao : 'autenticar',
 		usuario : usuario,
 		collection : 'usuarios',
 		callback : function(err,result){
 
 			result.toArray(function(errArray, resultArray){
-				var senha_criptografada = crypto.createHash("md5").update(usuario.senha).digest("hex");
+				const senha_criptografada = crypto.createHash("md5").update(usuario.senha).digest("hex");
 				usuario.senha = senha_criptografada;
 				if(resultArray[0] != undefined){
 					req.session.autorizado = true;

@@ -10,7 +10,7 @@ module.exports.cadastro_sucesso = function(application, req, res){
 
 module.exports.cadastrar = function(application, req, res){
 	
-	var dadosForm = req.body;
+	const dadosForm = req.body;
 
 	const errors = validationResult(req);
 
@@ -19,9 +19,9 @@ module.exports.cadastrar = function(application, req, res){
 		return;
 	}
 
-	var connection = application.config.dbConnection;
+	const connection = application.config.dbConnection;
 
-	var UsuariosDAO = new application.app.models.UsuariosDAO(connection);
+	const UsuariosDAO = new application.app.models.UsuariosDAO(connection);
 
 	UsuariosDAO.inserirUsuario(dadosForm);
 

@@ -1,10 +1,10 @@
-var mongo = require('mongodb').MongoClient;
-var assert = require('assert');
+const mongo = require('mongodb').MongoClient;
+const assert = require('assert');
 
 const url = 'mongodb://localhost:27017'
 const dbName = 'help_desk'
 
-var connMongoDB = function(dados){
+const connMongoDB = function(dados){
 	mongo.connect(url, {useUnifiedTopology: true, useNewUrlParser: true}, function(err,client){
 		assert.equal(null, err);
 		console.log('Connected successfully to server');
@@ -15,7 +15,7 @@ var connMongoDB = function(dados){
 };
 
 function query(db, dados){
-	var collection = db.collection(dados.collection);
+	const collection = db.collection(dados.collection);
 	switch(dados.operacao){
 		case 'inserir':
 			collection.insertOne(dados.usuario, dados.callback);
