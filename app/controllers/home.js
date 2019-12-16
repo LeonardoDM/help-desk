@@ -13,7 +13,7 @@ module.exports.abertura = function(application, req, res){
 		res.send('Usuário precisa fazer o login');
 		return;
 	}
-	res.render('abrir_chamado', {validacao: {}});
+	res.render('abrir_chamado', {validacao: {}, success: false});
 }
 
 module.exports.consulta = function(application, req, res){
@@ -30,7 +30,6 @@ module.exports.consulta = function(application, req, res){
 		console.log('result', result.chamados)
 		res.render('consultar_chamado', {chamado: result.chamados});
 	});
-	
 }
 
 module.exports.registra = function(application, req, res){
@@ -46,7 +45,7 @@ module.exports.registra = function(application, req, res){
 	const errors = validationResult(req);
 
 	if(!errors.isEmpty()){
-		res.render('abrir_chamado', {validacao: errors.array()});
+		res.render('abrir_chamado', {validacao: errors.array(), success: false});
 		return;
 	}
 
@@ -54,7 +53,7 @@ module.exports.registra = function(application, req, res){
 	const HomeDAO = new application.app.models.HomeDAO(connection);
 
 	HomeDAO.abrir(dadosForm, email, function(){
-		res.render('abrir_chamado', {validacao: {}});
+		res.render('abrir_chamado', {validacao: {}, success: true});
 	});
 	
 }

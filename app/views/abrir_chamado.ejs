@@ -46,21 +46,13 @@
     </nav>
 
     <div class="container"> 
-
-      <% if(validacao.length > 0){ %>
-        <div class="alert alert-danger">
-          <strong>Atenção!</strong>
-          <ul>
-            <% for(var i=0; i < validacao.length; i++){ %>
-               <li><%= validacao[i].msg%></li>
-            <% } %>
-          </ul>
-        </div>
-      <% } %>
-
       <div class="row">
-
         <div class="card-abrir-chamado">
+          <% if(success === true){ %>
+            <div class="alert alert-success" align="center">
+              <strong>Chamado registrado com sucesso!</strong>
+            </div>
+          <% } %>
           <div class="card">
             <div class="card-header">
               Abertura de chamado
@@ -70,6 +62,17 @@
                 <div class="col">
                   
                   <form method="post" action="/registrar_chamado">
+                    <% if(validacao.length > 0){ %>
+                      <div class="alert alert-danger">
+                        <strong>Atenção!</strong>
+                        <ul>
+                          <% for(var i=0; i < validacao.length; i++){ %>
+                            <li><%= validacao[i].msg%></li>
+                          <% } %>
+                        </ul>
+                      </div>
+                    <% } %>
+
                     <div class="form-group">
                       <label>Título</label>
                       <input name="titulo" type="text" class="form-control" placeholder="Título">
