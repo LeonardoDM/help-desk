@@ -23,8 +23,7 @@ module.exports.cadastrar = function(application, req, res){
 
 	const UsuariosDAO = new application.app.models.UsuariosDAO(connection);
 
-	UsuariosDAO.inserirUsuario(dadosForm);
-
-	res.redirect('cadastro_sucesso');
-
+	UsuariosDAO.inserirUsuario(dadosForm, function(){
+		res.redirect('cadastro_sucesso');
+	});
 }

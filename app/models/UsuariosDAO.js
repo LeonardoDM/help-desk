@@ -5,12 +5,13 @@ function UsuariosDAO(connection){
 	this._connection = connection;
 }
 
-UsuariosDAO.prototype.inserirUsuario = function(usuario){
+UsuariosDAO.prototype.inserirUsuario = function(usuario, callback){
 	const dados = {
 		operacao : 'inserir',
 		usuario : usuario,
 		collection : 'usuarios',
 		callback : function(err,result){
+			callback(result);
 		}
 	};
 	this._connection(dados);

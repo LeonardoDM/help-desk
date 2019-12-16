@@ -4,11 +4,11 @@ function HomeDAO(connection){
 	this._connection = connection;
 }
 
-HomeDAO.prototype.consultar = function(usuario, callback){
+HomeDAO.prototype.consultar = function(email, callback){
 
 	const dados = {
 		operacao : 'consulta_chamado',
-		usuario : usuario,
+		email : email,
 		collection : 'usuarios',
 		callback : function(err,result){
 			callback(result);
@@ -17,11 +17,15 @@ HomeDAO.prototype.consultar = function(usuario, callback){
 	this._connection(dados);
 }
 
-HomeDAO.prototype.abrir = function(usuario, callback){
+HomeDAO.prototype.abrir = function(chamado, email, callback){
 
 	const dados = {
 		operacao : 'abre_chamado',
-		usuario: usuario,
+		chamados: {
+			_id: new objectId(),
+			...chamado,
+		},
+		email: email,
 		collection : 'usuarios',
 		callback : function(err,result){
 			callback(result);

@@ -1,5 +1,6 @@
 const mongo = require('mongodb').MongoClient;
 const assert = require('assert');
+const objectId = require('mongodb').ObjectId;
 
 const url = 'mongodb://localhost:27017'
 const dbName = 'help_desk'
@@ -24,10 +25,10 @@ function query(db, dados){
 			collection.find(dados.usuario, dados.callback);
 			break;
 		case 'consulta_chamado':
-			collection.find(dados.usuario, dados.callback);
+			collection.findOne({email: dados.email}, dados.callback);
 			break;
 		case 'abre_chamado':
-			collection.insertOne(dados.usuario, dados.callback);
+			collection.updateOne({email: dados.email}, {$push: {chamados: dados.chamados}}, dados.callback);
 			break;
 		default:
 			break;
