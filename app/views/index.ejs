@@ -42,27 +42,26 @@
     </nav>
 
     <div class="container"> 
-      <% if(validacao.length > 0){ %>
-        <div class="alert alert-danger">
-          <strong>Atenção!</strong>
-          <ul>
-            <% for(var i=0; i < validacao.length; i++){ %>
-               <li><%= validacao[i].msg%></li>
-            <% } %>
-          </ul>
-        </div>
-      <% } %>
-
-      <% if(sessao == false){ %>
-        <div class="alert alert-danger">
-          <strong>Atenção!</strong>
-          <p>Email e/ou senha inválidos!</p>
-        </div>
-      <% } %>
-
       <div class="row">
 
         <div class="card-login">
+          <% if(validacao.length > 0){ %>
+            <div class="alert alert-danger">
+              <strong>Atenção!</strong>
+              <ul>
+                <% for(var i=0; i < validacao.length; i++){ %>
+                   <li><%= validacao[i].msg%></li>
+                <% } %>
+              </ul>
+            </div>
+          <% } %>
+
+          <% if(sessao == false){ %>
+            <div class="alert alert-danger">
+              <strong>Atenção!</strong>
+              <p>Email e/ou senha inválidos!</p>
+            </div>
+          <% } %>
           <div class="card">
             <div class="card-header">
               Login

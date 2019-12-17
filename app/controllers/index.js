@@ -10,7 +10,7 @@ module.exports.autenticar = function(application, req, res){
 	const errors = validationResult(req);
 
 	if(!errors.isEmpty()){
-		res.render('index', {validacao: errors.array()});
+		res.render('index', {validacao: errors.array(), sessao: {}});
 		return;
 	}
 
