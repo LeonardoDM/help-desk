@@ -27,7 +27,6 @@ module.exports.consulta = function(application, req, res){
 	const email = req.session.email;
 
 	HomeDAO.consultar(email, function(result){
-		console.log('result', result.chamados)
 		res.render('consultar_chamado', {chamado: result.chamados});
 	});
 }
