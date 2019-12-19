@@ -44,6 +44,22 @@
     <div class="container">
       <div class="row">
         <div class="card-login">
+          <% if(email === true){ %>
+            <div class="alert alert-danger">
+              <strong>Atenção!</strong>
+              <p align="center">Email já existe! Tente Novamente.</p>
+            </div>
+          <% } %>
+          <% if(validacao.length > 0){ %>
+            <div class="alert alert-danger">
+              <strong>Atenção!</strong>
+              <ul>
+                <% for(var i=0; i < validacao.length; i++){ %>
+                  <li><%= validacao[i].msg %></li>
+                <% } %>
+              </ul>
+            </div>
+          <% } %>
           <div class="card">
             <div class="card-header">
               Cadastro
@@ -59,22 +75,6 @@
                 <div class="form-group">
                   <input name="senha" value="<%=dadosForm.senha%>" type="password" class="form-control" placeholder="Senha">
                 </div>
-                <% if(email === true){ %>
-                  <div class="alert alert-danger">
-                    <strong>Atenção!</strong>
-                    <p align="center">Email já existe! Tente Novamente.</p>
-                  </div>
-                <% } %>
-                <% if(validacao.length > 0){ %>
-                  <div class="alert alert-danger">
-                    <strong>Atenção!</strong>
-                    <ul>
-                      <% for(var i=0; i < validacao.length; i++){ %>
-                        <li><%= validacao[i].msg %></li>
-                      <% } %>
-                    </ul>
-                  </div>
-                <% } %>
                 <button class="btn btn-lg btn-info btn-block" type="submit">Enviar</button>
               </form>
             </div>

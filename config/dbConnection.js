@@ -22,7 +22,7 @@ function query(db, dados){
 			collection.insertOne(dados.usuario, dados.callback);
 			break;
 		case 'autenticar':
-			collection.find(dados.usuario, dados.callback);
+			collection.find(dados.usuario).toArray(dados.callback);
 			break;
 		case 'consulta_chamado':
 			collection.findOne({email: dados.email}, dados.callback);
