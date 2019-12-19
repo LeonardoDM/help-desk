@@ -12,5 +12,5 @@ For now, this project has only academic purposes.
 ### Running
 
 - Install dependencies - `npm i`
-- Run project - `npm start`
+- Run project - `node app`
 - Go to page - `localhost:80/`
