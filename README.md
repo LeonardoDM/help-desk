@@ -1,16 +1,19 @@
 ## Help Desk
 
-This project was made out of an existing case by Jorge Sant Ana (e-learning course teacher) using PHP.
-It is a help desk platform where users can sign/log in to open a ticket reporting technology issues, like hardware malfunction , for example.
-For now, this project has only academic purposes.
+https://user-images.githubusercontent.com/27246482/120504253-5d24ba00-c39a-11eb-8f43-8bd54bda3d0a.mp4
 
-### Requirements
+Esse projeto foi realizado baseado em um já existente feito em PHP por Jorge Sant Ana (professor de curso online).\
+É uma plataforma de help desk onde usuários podem se cadastrar e entrar para abrir chamado(s) relatando problemas com o hardware utilizado, por exemplo.\
+Este projeto foi realizado apenas com fins acadêmicos.
+
+### Requisitos
 
 - NodeJS v10+
-- MongoDB running on local instance
+- MongoDB executando localmente
 
-### Running
+### Executando o projeto
 
-- Install dependencies - `npm i`
-- Run project - `node app`
-- Go to page - `localhost:80/`
+- Instale as dependências - `npm i`
+- Execute o MongoDB
+- Execute o projeto - `node app`
+- Vá até a página - `localhost:3000`
